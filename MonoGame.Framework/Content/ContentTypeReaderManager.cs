@@ -102,8 +102,8 @@ namespace Microsoft.Xna.Framework.Content
                 var hNullableRectReader = new NullableReader<Rectangle>();
                 var hEffectMaterialReader = new EffectMaterialReader();
                 var hExternalReferenceReader = new ExternalReferenceReader();
-                var hSoundEffectReader = new SoundEffectReader();
-                var hSongReader = new SongReader();
+                //var hSoundEffectReader = new SoundEffectReader();
+                //var hSongReader = new SongReader();
                 var hModelReader = new ModelReader();
                 var hInt32Reader = new Int32Reader();
                 var hEffectReader = new EffectReader();

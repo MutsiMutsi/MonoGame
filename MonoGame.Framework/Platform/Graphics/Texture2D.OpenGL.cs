@@ -4,6 +4,7 @@
 
 using System;
 using System.IO;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using MonoGame.Framework.Utilities;
 
@@ -81,6 +82,30 @@ namespace Microsoft.Xna.Framework.Graphics
                     ++level;
                 }
             });
+        }
+
+        private unsafe void UnsafePlatformSetDataBody<T>(T[] data)
+        {
+            fixed (void* ptr = &data[0])
+            {
+                var dataPtr = new IntPtr(ptr);
+                var prevTexture = GraphicsExtensions.GetBoundTexture2D();
+                if (prevTexture != glTexture)
+                {
+                    GL.BindTexture(TextureTarget.Texture2D, glTexture);
+                    GraphicsExtensions.CheckGLError();
+                }
+                GenerateGLTextureIfRequired();
+                GL.PixelStore(PixelStoreParameter.UnpackAlignment, Math.Min(_format.GetSize(), 8));
+                GL.TexImage2D(
+                    TextureTarget.Texture2D, 0, glInternalFormat, Width, Height, 0, glFormat, glType, dataPtr);
+                GraphicsExtensions.CheckGLError();
+                if (prevTexture != glTexture)
+                {
+                    GL.BindTexture(TextureTarget.Texture2D, prevTexture);
+                    GraphicsExtensions.CheckGLError();
+                }
+            }
         }
 
         private void PlatformSetDataBody<T>(int level, T[] data, int startIndex, int elementCount)

@@ -4,10 +4,12 @@
 
 using System;
 using System.IO;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics.PackedVector;
 using MonoGame.Framework.Utilities;
+using MonoGame.OpenGL;
 
 namespace Microsoft.Xna.Framework.Graphics
 {
@@ -263,6 +265,22 @@ namespace Microsoft.Xna.Framework.Graphics
             {
                 return height;
             }
+        }
+
+        public void UnsafeGetData<T>(T[] data) where T : struct
+        {
+            var tSizeInByte = ReflectionHelpers.SizeOf<T>.Get();
+            GL.BindTexture(TextureTarget.Texture2D, this.glTexture);
+            GL.PixelStore(PixelStoreParameter.PackAlignment, Math.Min(tSizeInByte, 8));
+            GL.GetTexImage(TextureTarget.Texture2D, 0, glFormat, glType, data);
+            GraphicsExtensions.CheckGLError();
+        }
+
+        public void UnsafeSetData<T>(T[] data) where T : struct
+        {
+            UnsafePlatformSetDataBody(data);
+            //PlatformSetDataBody(0, data, 0, data.Length);
+            //UnsafePlatformSetDataBody(data);
         }
 
         /// <summary>
