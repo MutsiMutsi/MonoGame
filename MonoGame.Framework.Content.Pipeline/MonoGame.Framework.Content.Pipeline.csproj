@@ -15,7 +15,12 @@
     <AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
     <DefineConstants>STBSHARP_INTERNAL</DefineConstants>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="bin\**\*" />
@@ -70,8 +75,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="AssimpNet" Version="5.0.0-beta1" IncludeAssets="compile;runtime;build" ExcludeAssets="native" />
-    <PackageReference Include="MonoGame.Library.Assimp" Version="5.3.1.2" />
+    <PackageReference Include="AssimpNetter" Version="5.4.3.3" />
     <PackageReference Include="BCnEncoder.Net" Version="2.1.0" />
     <PackageReference Include="Microsoft.NETCore.App" Version="2.1.30" />
     <PackageReference Include="MonoGame.Library.FreeImage" Version="3.18.0.3" />

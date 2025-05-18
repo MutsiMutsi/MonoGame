@@ -4,7 +4,6 @@
 
 using System;
 using System.Linq;
-using Microsoft.Xna.Framework.Media;
 using System.Globalization;
 
 namespace Microsoft.Xna.Framework.Content.Pipeline
@@ -50,9 +49,6 @@ namespace Microsoft.Xna.Framework.Content.Pipeline
         /// <summary>
         /// Gets or sets the type of soundtrack accompanying the video.
         /// </summary>
-        [ContentSerializerAttribute]
-        public VideoSoundtrackType VideoSoundtrackType { get; set; }
-
         /// <summary>
         /// Gets the width of this video.
         /// </summary>

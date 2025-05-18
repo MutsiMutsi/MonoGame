@@ -14,7 +14,6 @@ namespace Microsoft.Xna.Framework.Content.Pipeline.Serialization.Compiler
             output.WriteObject<int>(value.Width);
             output.WriteObject<int>(value.Height);
             output.WriteObject<float>(value.FramesPerSecond);
-            output.WriteObject<int>((int)value.VideoSoundtrackType);
         }
     }
 }
