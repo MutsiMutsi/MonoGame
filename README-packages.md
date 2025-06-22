@@ -1,8 +1,6 @@
-<div align="center">
- <a href="https://monogame.net/">
-   <img height="128" alt="MonoGame" src="https://raw.githubusercontent.com/MonoGame/MonoGame.Logo/refs/heads/master/FullColorOnLight/LogoOnly_128px.png">
- </a>
- <h1>MonoGame</h1>
+# MonoGame
+
+![MonoGame](https://raw.githubusercontent.com/MonoGame/MonoGame.Logo/refs/heads/master/FullColorOnLight/LogoOnly_128px.png)
 
  [![Join the chat at https://discord.gg/monogame](https://img.shields.io/discord/355231098122272778?style=flat-square&color=%237289DA&label=Discord%20server&logo=discord&logoColor=white)](https://discord.gg/monogame) 
  ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/monogame/monogame/main.yml?style=flat-square)
@@ -17,7 +15,6 @@
 [Source Code](#source-code) • 
 [Helpful Links](#helpful-links) • 
 [License](#license)
-</div>
 
 ## Overview
 
@@ -76,7 +73,7 @@ If you need help using MonoGame or have other questions we suggest you post on [
 
 If you are interested in contributing fixes or features to MonoGame, please read our [contributors guide](CONTRIBUTING.md) first.
 
-### Subscription
+## Subscription
 
 If you would like to help the project by supporting us financially, consider supporting us via a subscription for the price of a monthly coffee.
 

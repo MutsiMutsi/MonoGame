@@ -10,11 +10,11 @@
     <AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
     <CopyContentFiles>True</CopyContentFiles>
     <IsAotCompatible>true</IsAotCompatible>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>README-packages.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\README-packages.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
   <!-- NETFX reference assemblies let us target .NET Framework on Mac/Linux without Mono -->
@@ -24,7 +24,6 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="MonoGame.Library.SDL" Version="2.32.2.1" />
-    <PackageReference Include="NVorbis" Version="0.10.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -80,7 +79,7 @@
     <Compile Include="Platform\Input\KeysHelper.cs" />
     <Compile Include="Platform\Input\Mouse.SDL.cs" />
     <Compile Include="Platform\Input\MouseCursor.SDL.cs" />
-    <Compile Include="Platform\Input\MessageBox.Default.cs" />
+    <Compile Include="Platform\Input\MessageBox.SDL.cs" />
     <Compile Include="Platform\Graphics\GraphicsContext.SDL.cs" />
     <Compile Include="Platform\Graphics\OpenGL.SDL.cs" />
     <Compile Include="Platform\Graphics\WindowInfo.SDL.cs" />
@@ -105,5 +104,6 @@
   </ItemGroup>
 
   <Import Project="Platform\OpenGL.targets" />
+  <Import Project="MonoGame.Framework.Devices.Sensors.targets" />
   <Import Project="MonoGame.Framework.Devices.Sensors.targets" />
 </Project>
