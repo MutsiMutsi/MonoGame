@@ -17,6 +17,11 @@ using MonoGame.OpenGL;
 
 namespace Microsoft.Xna.Framework
 {
+    public static class MonoGameUIBlockCancellationTokenHolder
+    {
+        public static CancellationToken Token;
+    }
+
     internal class Threading
     {
         static int _mainThreadId;
@@ -142,7 +147,7 @@ namespace Microsoft.Xna.Framework
             try
             {
                 Debug.WriteLine("Thread blocked, waiting for action to be completed by the UI thread");
-                resetEvent.Wait(); // we don't know how much time the operation will take, so let's wait indefinitely
+                resetEvent.Wait(MonoGameUIBlockCancellationTokenHolder.Token); // we don't know how much time the operation will take, so let's wait indefinitely
             }
             finally
             {
