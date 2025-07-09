@@ -194,6 +194,16 @@ namespace Microsoft.Xna.Framework.Graphics
             }
         }
 
+        public unsafe void UploadPlaneDirect(IntPtr dataPtr, int width, int height, int pitch)
+        {
+            GL.BindTexture(TextureTarget.Texture2D, glTexture);
+            GL.TexImage2D(TextureTarget.Texture2D, 0,
+                PixelInternalFormat.Luminance,
+                width, height, 0,
+                PixelFormat.Red, PixelType.UnsignedByte,
+                dataPtr);
+        }
+
         private void PlatformSetData<T>(int level, T[] data, int startIndex, int elementCount)
             where T : struct
         {
